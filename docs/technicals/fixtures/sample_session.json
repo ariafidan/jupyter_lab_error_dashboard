@@ -1,0 +1,163 @@
+{
+  "schemaVersion": "1.1",
+  "sourceType": "hybrid",
+  "sessionId": "demo-session-2026-11-21",
+  "sessionStartTime": "2026-11-21T10:00:00Z",
+  "sessionEndTime": "2026-11-21T10:12:00Z",
+  "privacyMode": "pseudonymous",
+  "events": [
+    {
+      "eventId": "evt-001",
+      "timestamp": "2026-11-21T10:01:10Z",
+      "cellId": "cell-2",
+      "executionCount": 2,
+      "outcome": "error",
+      "category": "warning",
+      "errorType": "KeyError",
+      "errorSubPattern": "dict_key_not_found",
+      "rawMessage": "'alter'",
+      "plainExplanation": "You are trying to access the key 'alter' in the dictionary 'user', but only 'name' and 'city' exist.",
+      "codeContext": {
+        "sourceLines": [
+          "user = {'name': 'Sara', 'city': 'Bochum'}",
+          "print(user['alter'])"
+        ],
+        "errorLine": 2,
+        "columnOffset": 11,
+        "faultyToken": "'alter'"
+      },
+      "variableSnapshot": [
+        { "name": "user", "type": "dict", "value": "{'name': 'Sara', 'city': 'Bochum'}" }
+      ],
+      "fixLink": {
+        "status": "resolved",
+        "fixEventId": "evt-002",
+        "resolvedTimestamp": "2026-11-21T10:01:48Z",
+        "activeTimeToFixSeconds": 38,
+        "idleSecondsExcluded": 0,
+        "brokenCode": "print(user['alter'])",
+        "fixedCode": "print(user.get('alter'))"
+      }
+    },
+    {
+      "eventId": "evt-002",
+      "timestamp": "2026-11-21T10:01:48Z",
+      "cellId": "cell-2",
+      "executionCount": 3,
+      "outcome": "success",
+      "category": null,
+      "errorType": null,
+      "errorSubPattern": null,
+      "rawMessage": null,
+      "plainExplanation": null,
+      "codeContext": {
+        "sourceLines": [
+          "user = {'name': 'Sara', 'city': 'Bochum'}",
+          "print(user.get('alter'))"
+        ],
+        "errorLine": null,
+        "columnOffset": null,
+        "faultyToken": null
+      },
+      "variableSnapshot": null,
+      "fixLink": null
+    },
+    {
+      "eventId": "evt-003",
+      "timestamp": "2026-11-21T10:03:05Z",
+      "cellId": "cell-3",
+      "executionCount": null,
+      "outcome": "error",
+      "category": "critical",
+      "errorType": "SyntaxError",
+      "errorSubPattern": "missing_colon",
+      "rawMessage": "expected ':'",
+      "plainExplanation": "Your 'if' statement on line 2 is missing a colon (:) at the end.",
+      "codeContext": {
+        "sourceLines": [
+          "score = 15",
+          "if score > 10",
+          "    print('Passed')"
+        ],
+        "errorLine": 2,
+        "columnOffset": 14,
+        "faultyToken": "10"
+      },
+      "variableSnapshot": null,
+      "fixLink": {
+        "status": "unresolved",
+        "fixEventId": null,
+        "resolvedTimestamp": null,
+        "activeTimeToFixSeconds": null,
+        "idleSecondsExcluded": 0,
+        "brokenCode": "if score > 10",
+        "fixedCode": "if score > 10:"
+      }
+    },
+    {
+      "eventId": "evt-004",
+      "timestamp": "2026-11-21T10:07:30Z",
+      "cellId": "cell-4",
+      "executionCount": 4,
+      "outcome": "error",
+      "category": "warning",
+      "errorType": "KeyError",
+      "errorSubPattern": "dict_key_not_found",
+      "rawMessage": "'math'",
+      "plainExplanation": null,
+      "codeContext": {
+        "sourceLines": [
+          "grades = {'bio': 1.7, 'cs': 1.3}",
+          "print(grades['math'])"
+        ],
+        "errorLine": 2,
+        "columnOffset": 13,
+        "faultyToken": "'math'"
+      },
+      "variableSnapshot": [
+        { "name": "grades", "type": "dict", "value": "{'bio': 1.7, 'cs': 1.3}" }
+      ],
+      "fixLink": null
+    },
+    {
+      "eventId": "evt-005",
+      "timestamp": "2026-11-21T10:09:15Z",
+      "cellId": "cell-5",
+      "executionCount": 5,
+      "outcome": "error",
+      "category": "hint",
+      "errorType": "BroadExceptHint",
+      "errorSubPattern": "bare_except",
+      "rawMessage": "Overly broad 'except Exception:' clause detected",
+      "plainExplanation": "Catching all exceptions hides unexpected bugs. Specify the exact error type, such as 'except KeyError:'.",
+      "codeContext": {
+        "sourceLines": [
+          "try:",
+          "    val = int('abc')",
+          "except Exception:",
+          "    print('Error')"
+        ],
+        "errorLine": 3,
+        "columnOffset": 1,
+        "faultyToken": "except Exception:"
+      },
+      "variableSnapshot": [],
+      "fixLink": null
+    },
+    {
+      "eventId": "evt-006",
+      "timestamp": "2026-11-21T10:11:00Z",
+      "cellId": "cell-6",
+      "executionCount": 6,
+      "outcome": "error",
+      "category": "warning",
+      "errorType": "NameError",
+      "errorSubPattern": null,
+      "rawMessage": "name 'totl' is not defined",
+      "plainExplanation": null,
+      "codeContext": null,
+      "variableSnapshot": null,
+      "fixLink": null
+    }
+  ]
+}

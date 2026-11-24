@@ -1,0 +1,162 @@
+{
+  "SyntaxError": {
+    "defaultCategory": "critical",
+    "shortTooltip": "Python cannot read your code because a symbol, bracket, or colon is missing or misplaced.",
+    "vocabDefinition": "A SyntaxError occurs before your program even starts running because the code breaks Python's grammar rules.",
+    "checklist": [
+      "Did you forget a colon (:) at the end of an if, for, while, or def line?",
+      "Are all opening parentheses (, brackets [, and quotes ' or \" properly closed?",
+      "Did you accidentally use a single = instead of == inside an if condition?"
+    ],
+    "exampleBefore": "if score > 10\n    print('Win')",
+    "exampleAfter": "if score > 10:\n    print('Win')"
+  },
+  "IndentationError": {
+    "defaultCategory": "critical",
+    "shortTooltip": "The spaces or tabs at the start of a line do not line up properly.",
+    "vocabDefinition": "Python uses indentation (leading spaces) to group code blocks. An IndentationError means a block is misaligned.",
+    "checklist": [
+      "Did you indent the line right after a colon (:)?",
+      "Are all lines inside the same block indented by the exact same number of spaces (usually 4)?",
+      "Did you mix tabs and spaces?"
+    ],
+    "exampleBefore": "for i in range(3):\nprint(i)",
+    "exampleAfter": "for i in range(3):\n    print(i)"
+  },
+  "NameError": {
+    "defaultCategory": "warning",
+    "shortTooltip": "You used a variable or function name that Python does not recognize yet.",
+    "vocabDefinition": "A NameError happens when Python encounters an identifier that hasn't been defined in the current scope or earlier cells.",
+    "checklist": [
+      "Did you misspell the variable or function name (check uppercase/lowercase)?",
+      "Did you define this variable in a cell below instead of above?",
+      "Did you forget to run the cell where this variable was created?"
+    ],
+    "exampleBefore": "message = 'Hello'\nprint(mesage)",
+    "exampleAfter": "message = 'Hello'\nprint(message)"
+  },
+  "UnboundLocalError": {
+    "defaultCategory": "warning",
+    "shortTooltip": "You tried to read a local variable inside a function before assigning it a value.",
+    "vocabDefinition": "An UnboundLocalError occurs inside a function when a variable is assigned somewhere in that function, making it local, but you try to read it before that assignment runs.",
+    "checklist": [
+      "Did you try to update a variable (e.g., count += 1) inside a function without initializing it first?",
+      "Did you intend to pass that variable into the function as a parameter?"
+    ],
+    "exampleBefore": "total = 0\ndef add():\n    total += 1",
+    "exampleAfter": "def add(total):\n    return total + 1"
+  },
+  "TypeError": {
+    "defaultCategory": "warning",
+    "shortTooltip": "You combined incompatible data types (for example, adding text to a number).",
+    "vocabDefinition": "A TypeError happens when an operation or function is applied to an object of an inappropriate data type.",
+    "checklist": [
+      "Are you trying to add a string (str) and a number (int/float) without converting one first?",
+      "Did a function return None unexpectedly instead of a list, string, or number?",
+      "Did you pass the right number of arguments into a function call?"
+    ],
+    "exampleBefore": "age = 21\nprint('Age: ' + age)",
+    "exampleAfter": "age = 21\nprint('Age: ' + str(age))"
+  },
+  "ValueError": {
+    "defaultCategory": "warning",
+    "shortTooltip": "The data type is right, but the specific value inside it cannot be processed.",
+    "vocabDefinition": "A ValueError occurs when a function receives an argument of the correct type (like a string) whose content is invalid (like converting 'abc' to an integer).",
+    "checklist": [
+      "Are you converting user input or a string into int() or float() when it contains letters or is empty?",
+      "Are you unpacking a list or tuple into the wrong number of variables?"
+    ],
+    "exampleBefore": "number = int('twenty')",
+    "exampleAfter": "number = int('20')"
+  },
+  "KeyError": {
+    "defaultCategory": "warning",
+    "shortTooltip": "You tried to look up a dictionary key that does not exist.",
+    "vocabDefinition": "A KeyError occurs when accessing a dictionary with square brackets d[key], but that exact key is missing.",
+    "checklist": [
+      "Did you spell the key string exactly as it was defined (including case and spaces)?",
+      "Did you check the Variable Inspector to see which keys are currently in the dictionary?",
+      "Would using d.get('key') be safer if the key might be missing?"
+    ],
+    "exampleBefore": "user = {'name': 'Sara'}\nprint(user['alter'])",
+    "exampleAfter": "user = {'name': 'Sara'}\nprint(user.get('alter'))"
+  },
+  "IndexError": {
+    "defaultCategory": "warning",
+    "shortTooltip": "You tried to access a list position that is out of range.",
+    "vocabDefinition": "An IndexError occurs when an index number is larger than the last position in a list or tuple (remember: counting starts at 0).",
+    "checklist": [
+      "Remember that a list with 3 items has valid indices 0, 1, and 2—not 3.",
+      "Could the list be empty ([]) when this line runs?",
+      "Check the list length in the Variable Inspector."
+    ],
+    "exampleBefore": "items = ['a', 'b']\nprint(items[2])",
+    "exampleAfter": "items = ['a', 'b']\nprint(items[1])"
+  },
+  "AttributeError": {
+    "defaultCategory": "warning",
+    "shortTooltip": "This object does not have the method or property you tried to call.",
+    "vocabDefinition": "An AttributeError happens when you use dot notation (obj.something) on a data type that doesn't support that method—or when the variable is None.",
+    "checklist": [
+      "Check the variable's actual type in the Variable Inspector (is it None, int, or str instead of a list?).",
+      "Did you misspell the method name (e.g., .append() vs .add())?"
+    ],
+    "exampleBefore": "text = 'hello'\ntext.append('!')",
+    "exampleAfter": "text = 'hello'\ntext = text + '!'"
+  },
+  "ZeroDivisionError": {
+    "defaultCategory": "warning",
+    "shortTooltip": "You tried to divide a number by zero.",
+    "vocabDefinition": "Division or modulo (%) by zero is mathematically undefined, so Python stops execution immediately.",
+    "checklist": [
+      "Which variable is in the denominator (after / or %)?",
+      "Could that variable become 0 when a list is empty or a counter starts at 0?"
+    ],
+    "exampleBefore": "count = 0\navg = total / count",
+    "exampleAfter": "count = 0\navg = total / count if count > 0 else 0"
+  },
+  "ImportError": {
+    "defaultCategory": "warning",
+    "shortTooltip": "Python could not find or load the module or function you tried to import.",
+    "vocabDefinition": "An ImportError (or ModuleNotFoundError) happens when a library name is misspelled, not installed in your environment, or a specific name does not exist inside that module.",
+    "checklist": [
+      "Did you spell the module or function name correctly?",
+      "Is the package installed in your active Jupyter kernel environment?"
+    ],
+    "exampleBefore": "from math import squareroot",
+    "exampleAfter": "from math import sqrt"
+  },
+  "FileNotFoundError": {
+    "defaultCategory": "warning",
+    "shortTooltip": "Python could not find the file at the path you specified.",
+    "vocabDefinition": "A FileNotFoundError occurs when open() or a data reader looks for a file name or folder path that does not exist relative to your notebook.",
+    "checklist": [
+      "Is the file located in the exact same folder as your Jupyter notebook?",
+      "Did you include the correct file extension (e.g., .csv or .txt) and check spelling?"
+    ],
+    "exampleBefore": "open('data.csv')",
+    "exampleAfter": "open('data/data.csv')"
+  },
+  "BroadExceptHint": {
+    "defaultCategory": "hint",
+    "shortTooltip": "Catching all exceptions with bare 'except:' or 'except Exception:' can hide real bugs.",
+    "vocabDefinition": "Best Practice Hint: Catching specific exceptions (like except KeyError:) keeps your error handling predictable and avoids masking typos.",
+    "checklist": [
+      "Which specific error do you actually expect inside this try block?",
+      "Replace 'except Exception:' with that exact error type."
+    ],
+    "exampleBefore": "try:\n    x = int(val)\nexcept Exception:\n    x = 0",
+    "exampleAfter": "try:\n    x = int(val)\nexcept ValueError:\n    x = 0"
+  },
+  "Default": {
+    "defaultCategory": "warning",
+    "shortTooltip": "Python encountered an unexpected issue while running this cell.",
+    "vocabDefinition": "An exception interrupts normal execution when Python cannot complete the requested instruction.",
+    "checklist": [
+      "Read the highlighted line carefully from left to right.",
+      "Check the values and types of your variables in the Variable Inspector."
+    ],
+    "exampleBefore": "",
+    "exampleAfter": ""
+  }
+}
